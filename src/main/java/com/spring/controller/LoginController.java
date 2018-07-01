@@ -1,8 +1,5 @@
 package com.spring.controller;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,81 +29,4 @@ public class LoginController {
 			return "login";
 		}
 	}
-
-
-	
-	public boolean checkUsername(@ModelAttribute("loginBean") LoginBean loginBean) {
-		boolean result =false;
-		if (loginBean != null && loginBean.getUserName() != null) {
-			String username = loginBean.getUserName();
-			if(username.length() == 6)
-			{
-				result = true;
-			}
-		}
-		else
-		{
-			result = false;
-		}
-		return result;
-	}
-	
-	public boolean checkPasswordLength(@ModelAttribute("loginBean") LoginBean loginBean) {
-		boolean result =false;
-		if (loginBean.getPassword() != null) {
-			String password = loginBean.getPassword();
-			if(password.length() > 6)
-			{
-				result = true;
-			}
-		}
-		else
-		{
-			result = false;
-		}
-		return result;
-	}
-	
-	public boolean checkPassword(@ModelAttribute("loginBean") LoginBean loginBean) {
-		boolean result =false;
-		if (loginBean.getPassword() != null) {
-			String password = loginBean.getPassword();
-			 Pattern p = Pattern.compile( "[0-9]" );
-			    Matcher m = p.matcher(password);
-			    if(m.find()==true)
-			    {
-			    	result=true;
-			    }
-		}
-		else
-		{
-			result = false;
-		}
-		return result;
-	}
-	
-	public boolean checkNumber(@ModelAttribute("loginBean") LoginBean loginBean) {
-		boolean result =false;
-		int count=0;
-		char ch;
-		if (loginBean.getPassword() != null) {
-			String password = loginBean.getPassword();
-			for(int i=0;i < password.length();i++) {
-		        ch = password.charAt(i);
-		        if(Character.isUpperCase(ch))
-		        {
-		        	count++;
-		        }
-		}
-			if(count>0)
-			{
-				result=true;
-			}
-		else
-		{
-			result = false;
-		}		
-	}
-		return result;
-}
 }
