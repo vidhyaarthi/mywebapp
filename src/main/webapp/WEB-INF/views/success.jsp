@@ -9,6 +9,6 @@
 <body>
 	<font color="green"><h1>Hello</h1></font>
 	<h2>${msg}</h2> You have successfully logged in.
-	<font color="green"><h1>Welcome to test !</h1></font>
+	<font color="green"><h1>Welcome to Preethi !</h1></font>
 </body>
 </html>
